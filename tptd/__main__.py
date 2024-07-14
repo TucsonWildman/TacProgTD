@@ -137,16 +137,13 @@ if __name__ == '__main__':
         pygame.display.flip()
         
         if not (bool(enemy_wave) or bool(Enemy.sp_grp.sprites() ) ):
-            oukd    = floor(max([twr.overutilization for twr in Turret.sp_grp.sprites()])*OVERUTIL_GRAN)/OVERUTIL_GRAN
             tot_pkd = float(5*Enemy.killed - PLAYER_BASE.damage - 10*num_twr)
-            if tot_pkd > 0: tot_pkd *= 1 - oukd
             
             game_over       = True
             final_score_msg = f'''
             Towers Deployed:        {num_twr}
             Enemies neutralized:    {Enemy.killed}
             Enemies survived:       {PLAYER_BASE.damage}
-            Max Overutilization:    {oukd*100}%
             --------------------------------
             FINAL SCORE:            {tot_pkd}
             '''
